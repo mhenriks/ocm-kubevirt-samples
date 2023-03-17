@@ -59,6 +59,9 @@ spec:
       name: sample-vm-pvc
       labels:
         appname: vm-dvtemplate-odr-metro
+      annotations:
+        cdi.kubevirt.io/storage.checkStaticVolume: ""
+        cdi.kubevirt.io/storage.pod.retainAfterCompletion: "true"
     spec:
       storage:
         storageClassName: ocs-external-storagecluster-ceph-rbd
