@@ -61,7 +61,6 @@ spec:
         appname: vm-dvtemplate-odr-metro
       annotations:
         cdi.kubevirt.io/storage.checkStaticVolume: ""
-        cdi.kubevirt.io/storage.deleteAfterCompletion: "false"
     spec:
       storage:
         storageClassName: ocs-external-storagecluster-ceph-rbd
