@@ -1,0 +1,39 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: fedora
+spec:
+  dataVolumeTemplates:
+  - metadata:
+      name: fedora-root
+      annotations:
+        cdi.kubevirt.io/storage.checkStaticVolume: ""
+    spec:
+      pvc:
+        accessModes:
+        - ReadWriteMany
+        resources:
+          requests:
+            storage: 7Gi
+        storageClassName: ocs-external-storagecluster-ceph-rbd
+        volumeMode: Block
+      source:
+        registry:
+          url: "docker://quay.io/kubevirtci/fedora-with-test-tooling:fc35-2208011009"
+          pullMethod: node
+  running: true
+  template:
+    spec:
+      domain:
+        devices:
+          disks:
+          - disk:
+              bus: virtio
+            name: datavolumedisk1
+        resources:
+          requests:
+            memory: 256M
+      volumes:
+      - dataVolume:
+          name: fedora-root
+        name: datavolumedisk1
