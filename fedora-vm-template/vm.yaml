@@ -6,6 +6,8 @@ spec:
   dataVolumeTemplates:
   - metadata:
       name: fedora-root
+      labels:
+        appname: fedora-vm-template
       annotations:
         cdi.kubevirt.io/storage.checkStaticVolume: ""
     spec:
