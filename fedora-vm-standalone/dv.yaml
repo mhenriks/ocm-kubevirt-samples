@@ -3,7 +3,7 @@ kind: DataVolume
 metadata:
   name: fedora-root
   labels:
-    appname: fedora-vm-template
+    appname: fedora-vm-standalone
   annotations:
     cdi.kubevirt.io/storage.checkStaticVolume: ""
     cdi.kubevirt.io/storage.deleteAfterCompletion: "false"
