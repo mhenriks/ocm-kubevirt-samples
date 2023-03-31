@@ -6,6 +6,7 @@ metadata:
     appname: fedora-vm-template
   annotations:
     cdi.kubevirt.io/storage.checkStaticVolume: ""
+    cdi.kubevirt.io/storage.pod.retainAfterCompletion: "true"
 spec:
   pvc:
     accessModes:
